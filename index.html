@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>赣蜀西行</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- 主菜单 -->
+    <header id="main-header">
+        <h1>赣蜀西行之旅</h1>
+        <nav class="menu">
+            <button class="menu-btn">开始旅程</button> 
+            <button class="menu-btn">风景图鉴</button>
+            <button class="menu-btn">专心欣赏</button>
+            <button class="menu-btn">关于网站</button>
+        </nav>
+    </header>
+    <div id="show-btn" class="hidden">
+        <button id="show-main-menu" class="btn-return">显示菜单</button>
+    </div>
+    <!-- 背景音乐 -->
+    <audio src="Assets/Halee - China-X.mp" autoplay="true" loop="true" id="bgm"></audio>
+    <!-- 顶部信息与功能 -->
+    <div id="top-bar" class="hidden">
+        <div class="info-panel">
+            <h3 id="chapter-title-display">站名</h3>
+            <p>打卡进度：<span id="progress-display">进度</span></p>
+        </div>
+        <nav class="action-buttons">
+             <button class="top-btn" id="select-chapter">选择站点</button>
+            <button class="top-btn" id="btn-return-menu">返回主菜单</button>
+        </nav>
+    </div>
+    <!-- 主菜单 -->
+    <main>
+        <section id="chapter-1" class="game-section hidden">
+            <div class="nav-buttons-container">
+                <button class="nav-btn next-btn">
+                    去往下一站 →
+                </button>
+            </div>
+            <div id="player-avatar"><img src="Assets/wanderer.jpg" alt="Player"></div>
+            <div class="location-node" style="left: 10%; top: 60%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 35%; top: 40%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 85%; top: 35%;" data-info="" data-img=""></div>
+        </section>
+
+        <section id="chapter-2" class="game-section hidden">
+            <div class="nav-buttons-container">
+                <button class="nav-btn prev-btn">
+                    ← 返回上一站
+                </button>
+                <button class="nav-btn next-btn">
+                    去往下一站 →
+                </button>
+            </div>
+
+            <div id="player-avatar"><img src="Assets/wanderer.jpg" alt="Player"></div>
+            <div class="location-node" style="left: 10%; top: 50%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 70%; top: 60%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 90%; top: 20%;" data-info="" data-img=""></div>
+        </section>
+
+        <section id="chapter-3" class="game-section hidden">
+            <div class="nav-buttons-container">
+                <button class="nav-btn prev-btn">
+                    ← 返回上一站
+                </button>
+                <button class="nav-btn next-btn">
+                    去往下一站 →
+                </button>
+            </div>
+
+            <div id="player-avatar"><img src="Assets/wanderer.jpg" alt="Player"></div>
+            <div class="location-node" style="left: 15%; top: 70%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 45%; top: 50%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 75%; top: 30%;" data-info="" data-img=""></div>
+        </section>
+        
+        <section id="chapter-4" class="game-section hidden">
+            <div class="nav-buttons-container">
+                <button class="nav-btn prev-btn">
+                    ← 返回上一站
+                </button>
+            </div>
+            <div id="player-avatar"><img src="Assets/wanderer.jpg" alt="Player"></div>
+            <div class="location-node" style="left: 15%; top: 50%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 50%; top: 30%;" data-info="" data-img=""></div>
+            <div class="location-node" style="left: 85%; top: 50%;" data-info="" data-img=""></div>
+        </section>
+        <!-- 弹窗与遮罩 -->
+        <div id="overlay" class="hidden"></div>
+        <div id="scenery-modal" class="hidden">
+            <h2 id="modal-title">标题</h2>
+            <img id="modal-img" src="" alt="">
+            <p id="modal-desc">描述</p>
+            <button id="btn-confirm-move" class="close-btn hidden">前往</button>
+        </div>
+    </main>
+    <!-- 章节选择器 -->
+    <div id="chapter-modal" class="hidden">
+        <h3>选择章节</h3>
+        <button class="chapter-option">第一站：江西省</button>
+        <button class="chapter-option">第二站：湖北省</button>
+        <button class="chapter-option">第三站：重庆市</button>
+        <button class="chapter-option">第四站：四川省</button>
+        <button class="chapter-option">取消</button>
+    </div>
+    <!-- 风景图鉴 -->
+    <aside id="atlas-view" class="hidden">
+        <div class="atlas-header">
+            <p class="small-title">风景图鉴</p>
+            <button class="btn-return">返回主菜单</button>
+        </div>
+        <div>
+            <div class="atlas-list" id="atlas-list-container"></div>
+            <div id="atlas-modal" class="hidden">
+                <div class="modal-content">
+                    <span class="modal-close">&times;</span>
+                    <h2 id="modal-title-aside">标题</h2>
+                    <div id="modal-body">内容区域</div>
+                    <button id="change-bgimg">切换背景</button>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- 关于页面 -->
+    <footer id="about-view" class="hidden">
+        <div class="about-header">
+            <h3 class="small-title"><i>网站基础信息及资源来源</i></h3>
+            <div class="action-buttons">
+                <button id="stop-music">关闭音乐</button>
+                <button class="btn-return">返回主菜单</button>
+            </div>
+        </div>
+        <div class="notice-frame">
+            <div class="notice-content">
+                <h3>📢 公示信息</h3>
+                <hr style="border: 1px dashed #d35400; margin: 15px 0;">
+                
+                <p><strong>版本号：</strong> v1.0.0</p>
+                <p><strong>开发语言：</strong> 原生 HTML/CSS/JS</p>
+                <p><strong>素材来源：</strong></p>
+                <ul>
+                    <li>代码部分使用了Qwen模型</li>
+                    <li>背景图片来自网络</li>
+                    <li>角色头像来自网络(<a href="https://www.duitang.com/blog/?id=1363598728" target="_blank">看原图</a>)</li>
+                    <li>背景音乐来自网络(<a href="https://www.kugou.com/mixsong/8rs6x839.html?fromsearch=china-x%20halle" target="_blank">China-X - Halee</a>)</li>
+                </ul>
+                <p style="margin-top:20px; color:#d35400;">&copy; 2026 Anks / web设计</p>
+            </div>
+        </div>
+    </footer>
+    <!-- 引入脚本 -->
+    <script src="script.js"></script>
+</body>
+</html>
