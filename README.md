@@ -1,2 +1,16 @@
 # static-travel-site
-a static travel-themed wedsite used for schoolwork
+我的一个类单页面应用的旅游主题的静态前端网页。
+> a static travel-themed wedsite used for schoolwork
+
+## 页面内容
+采用类似游戏界面的UI呈现了一个旅游网站，路线为中国的 江西省->湖北省->重庆市->四川省 ，展示了沿途的风景图片和简单的文字介绍。进入后是主菜单，通过主菜单可以进入旅行地图，图鉴页面，关于页面。主菜单的专心欣赏可以隐藏主菜单。旅行地图可以通过点击进行旅行，图鉴页面可以看到全部景点的图片和信息，关于页面是网站的一些基本信息。更加具体的内容请访问 https://anksforaiks.github.io/static-travel-site 。，制作时使用了AI
+
+## 文件结构
+- index.html：页面的HTML骨架代码
+- styles.css：页面的CSS样式代码
+- script.js：驱动页面交互的JS逻辑
+- Assets：页面使用的全部图片及音频资源
+
+## 使用提醒
+- **该项目属于本人的课程设计，使用时避免直接复制粘贴**
+- **页面使用的资源均来自于网络
